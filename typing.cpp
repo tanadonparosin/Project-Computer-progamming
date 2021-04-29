@@ -47,7 +47,7 @@ void drawBorder(){  											// เส้นขอบ
 
 void genAlphabet(int ind){
 	keys[ind] = 65+rand()%25;
-	keyPos[ind][0] = 2 + rand()%(WIN_WIDTH-2);
+	keyPos[ind][0] = 2 + rand()%(WIN_WIDTH-2);   //random ตัวอักษร
 	keyPos[ind][1] = 1;
 }
 void drawAlphabet(int ind){
@@ -65,20 +65,13 @@ void resetAlphabet(int ind){
 	genAlphabet(ind);
 }
 
-void gameover(int score){
-	system("cls");
-	cout<<endl;
-	cout<<"\t\t--------------------------"<<endl;
-	cout<<"\t\t-------- Game Over -------"<<endl;
-	cout<<"\t\t--------------------------"<<endl<<endl;
-	cout<<"\t\t         SCORE: ";cout<< score<<endl<<endl;
-	cout<<"\t\tPress any key to go back to menu.";
-	getch();
-}
 void updateScore(){
 	gotoxy(WIN_WIDTH + 7, 5);cout<<"Score: "<<score<<endl;
 }
-
+void timecount(){
+	int time = 20;
+	gotoxy(WIN_WIDTH + 7, 5);cout<<"time: "<<time<<endl;
+}
 void instructions(){
 	
 	system("cls");
@@ -92,7 +85,26 @@ void instructions(){
 	getch();
 }
 
-void play(){
+void gameover(int score, int speed){
+	system("cls");
+	gotoxy(45,6); cout<<"--------------------------";
+	gotoxy(45,7); cout<<"-------- Game Over -------";
+	gotoxy(45,8); cout<<"--------------------------";
+	gotoxy(45,10); cout<<"      SCORE: ";cout<< score;
+	if(speed == 300){
+		gotoxy(45,12);cout<<"      DIFFICULTY: Easy";
+	}
+	else if(speed == 240){
+		gotoxy(45,12); cout<<"      DIFFICULTY: Normal";
+	}
+	else if(speed == 180){
+		gotoxy(45,12); cout<<"      DIFFICULTY: Hard";
+	}
+	gotoxy(43,14); cout<<"Press any key to go back to menu.";
+	getch();
+}
+
+void play(int speed){
 	score = 0;
 	for(int i=0; i<10; i++){
 		keyPos[i][0] = keyPos[i][1] = 1;	
@@ -131,18 +143,34 @@ void play(){
 		for(int i=0; i<10; i++)
 			drawAlphabet(i);  
 			
-		Sleep(300); 
+		Sleep(speed); 
 		
 		for(int i=0; i<10; i++){
 			eraseAlphabet(i);  
 			keyPos[i][1] += 1;
 			if( keyPos[i][1] > SCREEN_HEIGHT ){
-				gameover(score);
+				gameover(score, speed);
 				return;
 			}
 		}
 	}
 }
+void difficult(){
+	system("cls");
+	gotoxy(45,5); cout<<" -------------------------- "; 
+	gotoxy(45,6); cout<<" |       Difficulty       | "; 
+	gotoxy(45,7); cout<<" --------------------------";
+	gotoxy(45,9); cout<<"1. Easy";
+	gotoxy(45,10); cout<<"2. Normal";
+	gotoxy(45,11); cout<<"3. Hard";
+	gotoxy(45,13); cout<<"select your difficulty: ";
+	char diff = getche();
+
+	if (diff == '1') play(300);
+	else if (diff == '2') play(240);
+	else if (diff == '3') play(180);
+}
+
 
 int main()
 {
@@ -151,18 +179,24 @@ int main()
 	 
 	do{
 		system("cls");
-		gotoxy(10,5); cout<<" -------------------------- "; 
-		gotoxy(10,6); cout<<" |     TYPING  TUTOR      | "; 
-		gotoxy(10,7); cout<<" --------------------------";
-		gotoxy(10,9); cout<<"1. Start Game";
-		gotoxy(10,10); cout<<"2. Instructions";	 
-		gotoxy(10,11); cout<<"3. Quit";
-		gotoxy(10,13); cout<<"Select option: ";
+		gotoxy(45,5); cout<<" -------------------------- "; 
+		gotoxy(45,6); cout<<" |     TYPING  TUTOR      | "; 
+		gotoxy(45,7); cout<<" --------------------------";
+		gotoxy(45,9); cout<<"1. Start Game";
+		gotoxy(45,10); cout<<"2. Instructions";	 
+		gotoxy(45,11); cout<<"3. Quit";
+		gotoxy(45,13); cout<<"Select option: ";
 		char op = getche();
 		
-		if( op=='1') play();
-		else if( op=='2') instructions();
-		else if( op=='3') exit(0);
+		if( op=='1') {
+			difficult();
+		}
+		else if( op=='2') {
+			instructions();
+		}
+		else if( op=='3') {
+			exit(0);
+		} 
 		
 	}while(1);
 	
