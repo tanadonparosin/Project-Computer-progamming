@@ -2,18 +2,7 @@
 <head>
 
 </head>
-<body> 
- 
-<div class="wrap">
 
-  <div class="box" style="  left: 30%;  top: 120px;"></div>
-  <div class="box2" style="left: 15%; top: 440px;;"></div>
-</div>
-<div class="bar" style="left: 5%;top: 20px;"></div>
-<div class="button bar" style="left: 65%;top: 20px; background-color: #FF66C4;"><h1>รายละเอียด</h1></div>
-<div class="button bar" style="left: 80%;top: 20px; background-color: #e300f8;"><h1>source code</h1></div>
-
-</body>
 <style>
 body {
   background-color: #F0BEFF;
@@ -58,14 +47,47 @@ p {
   background: #A753BF;
   position: absolute;
 }
-.button{
-  width: 15%;
-  height: 10%;
+ul {
+  list-style-type: none;
+  margin: 5;
+  padding: 0;
+  overflow: hidden;
+  background-color: #C090CE;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
   transition: .3s;
 }
-.button:hover{
+
+li a:hover {
+  background-color: rgb(204, 50, 145);
   transform: scale(1.2);
   z-index: 2;
 }
 </style>
+<body> 
+ 
+
+
+  <div class="box" style="  left: 30%;  top: 90px;"></div>
+  <div class="box2" style="left: 15%; top: 430px;"></div>
+</div>
+
+<ul>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a href="sourcecode.html">source code</a></li>
+  <li><a href="info.html">specification</a></li>
+  
+</ul>
+
+</body>
 </html>
