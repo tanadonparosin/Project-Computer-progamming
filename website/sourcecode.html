@@ -35,7 +35,7 @@ p {
   position: absolute;
   }
 .box{
-  width: 70%;
+  width: 50%;
   height: 55%;
   border-radius: 50px;
   background: #CE7FE6;
@@ -92,13 +92,14 @@ li a:hover {
 
 
   
-  <div class="box2" style="left: 15%; top: 440px;;"></div>
+  
 </div>
 
 <ul>
   <li><a class="active" href="home.html">Home</a></li>
-  <li><a href="sourcecode.html">source code</a></li>
   <li><a href="info.html">specification</a></li>
+  <li><a href="sourcecode.html">source code</a></li>
+  
   
 </ul>
 </style>
@@ -109,17 +110,222 @@ li a:hover {
   background-color:hsl(305, 63%, 47%)
   ;border-radius: 15px; z-index: 2;
   animation:moon 3s infinite linear;"><h1>source code</h1></div>
-  <div class="box" style="left: 10%; top: 107px; padding: 5%;">
+  <div class="box" style="left: 20%; top: 107px; padding: 5%;">
     <div style=
     "
-    width:99%;
+    margin-left: 17%;
+    width:65%;
     height:99%;
-    line-height:3em;
+    line-height:1em;
     overflow:scroll;
-    padding:5px;
+    padding:0px;
     background-color:#ffbefa;
-    scrollbar-base-color:#c105da;">
-    This 'div' element uses 'overflow:scroll' to create scrollbars whenever the contents of the 'div' become too large. 
+    scrollbar-base-color:#c105da;
+    border:5px double #df74e2;">
+    #include<conio.h><br>
+      #include<iostream><br>
+      #include<dos.h> <br>
+      #include <windows.h><br>
+      #include <time.h><br>
+      <br>
+      #define SCREEN_WIDTH 90<br>
+      #define SCREEN_HEIGHT 26<br>
+      #define WIN_WIDTH 70 <br>
+      <br>
+      using namespace std; <br>
+       <br>
+      HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);<br>
+      COORD CursorPosition;<br>
+      <br>
+      char keys[10];	<br>
+      int keyPos[10][2];	<br>
+      int score = 0; <br>
+      
+      void gotoxy(int x, int y){<br>
+        CursorPosition.X = x;<br>
+        CursorPosition.Y = y;<br>
+        SetConsoleCursorPosition(console, CursorPosition);<br>
+      }<br>
+      void setcursor(bool visible, DWORD size) {<br>
+        if(size == 0)<br>
+          size = 20;	<br>
+        <br>
+        CONSOLE_CURSOR_INFO lpCursor;	<br>
+        lpCursor.bVisible = visible;<br>
+        lpCursor.dwSize = size;<br>
+        SetConsoleCursorInfo(console,&lpCursor);<br>
+      }<br>
+      void drawBorder(){  											// เส้นขอบ<br>
+        for(int i=0; i <= SCREEN_WIDTH + 1; i++){ <br>
+          gotoxy(i,SCREEN_HEIGHT); cout<<"=";<br>
+        }<br>
+        <br>
+        for(int i=0; i<SCREEN_HEIGHT; i++){<br>
+          gotoxy(0,i); cout<<"||";<br>
+          gotoxy(SCREEN_WIDTH,i); cout<<"||";<br>
+        }<br>
+        for(int i=0; i < SCREEN_HEIGHT; i++){<br>
+          gotoxy(WIN_WIDTH,i); cout<<"||";<br>
+        }<br>
+      }<br>
+      <br>
+      void genAlphabet(int ind){<br>
+        keys[ind] = 65+rand()%25;<br>
+        keyPos[ind][0] = 2 + rand()%(WIN_WIDTH-2);   //random ตัวอักษร<br>
+        keyPos[ind][1] = 1;<br>
+      }<br>
+      void drawAlphabet(int ind){<br>
+        if( keyPos[ind][0] != 0 ){<br>
+          gotoxy(keyPos[ind][0], keyPos[ind][1]);   cout<<keys[ind];  <br>
+        } <br>
+      }<br>
+      void eraseAlphabet(int ind){<br>
+        if( keyPos[ind][0] != 0 ){<br>
+          gotoxy(keyPos[ind][0], keyPos[ind][1]);   cout<<" ";  <br>
+        }<br>
+      }<br>
+      void resetAlphabet(int ind){<br>
+        eraseAlphabet(ind);<br>
+        genAlphabet(ind);<br>
+      }<br>
+      <br>
+      void updateScore(){<br>
+        gotoxy(WIN_WIDTH + 7, 5);cout<<"Score: "<<score<<endl;<br>
+      }<br>
+      void timecount(){<br>
+        int time = 20;<br>
+        gotoxy(WIN_WIDTH + 7, 5);cout<<"time: "<<time<<endl;<br>
+      }<br>
+      void instructions(){<br>
+        <br>
+        system("cls");<br>
+        cout<<"Instructions";<br>
+        cout<<"\n----------------";<br>
+        cout<<"\n On Left side you will see falling characters ";<br>
+        cout<<"\n You have to keep them away from touching floor";<br>
+        cout<<"\n Press respective key from keyboard to keep playing";<br>
+        cout<<"\n\n Press 'escape' to exit";<br>
+        cout<<"\n\nPress any key to go back to menu";<br>
+        getch();<br>
+      }<br>
+      <br>
+      void gameover(int score, int speed){<br>
+        system("cls");<br>
+        gotoxy(45,6); cout<<"--------------------------";<br>
+        gotoxy(45,7); cout<<"-------- Game Over -------";<br>
+        gotoxy(45,8); cout<<"--------------------------";<br>
+        gotoxy(45,10); cout<<"      SCORE: ";cout<< score;<br>
+        if(speed == 300){<br>
+          gotoxy(45,12);cout<<"      DIFFICULTY: Easy";<br>
+        }<br>
+        else if(speed == 240){<br>
+          gotoxy(45,12); cout<<"      DIFFICULTY: Normal";<br>
+        }<br>
+        else if(speed == 180){<br>
+          gotoxy(45,12); cout<<"      DIFFICULTY: Hard";<br>
+        }<br>
+        gotoxy(43,14); cout<<"Press any key to go back to menu.";<br>
+        getch();<br>
+      }<br>
+      <br>
+      void play(int speed){<br>
+        score = 0;<br>
+        for(int i=0; i<10; i++){<br>
+          keyPos[i][0] = keyPos[i][1] = 1;	<br>
+        }<br>
+         <br>
+        system("cls"); <br>
+        drawBorder(); <br>
+        updateScore();<br>
+        <br>
+        for(int i=0; i<10; i++)<br>
+          genAlphabet(i); <br>
+        <br>
+        gotoxy(WIN_WIDTH + 5, 2);cout<<"Typing Tutor";<br>
+        gotoxy(WIN_WIDTH + 6, 4);cout<<"----------";<br>
+        gotoxy(WIN_WIDTH + 6, 6);cout<<"----------";<br>
+        <br>
+        gotoxy(18, 5);cout<<"Press any key to start";<br>
+        getch();<br>
+        gotoxy(18, 5);cout<<"                      ";<br>
+        <br>
+        while(1){<br>
+          if(kbhit()){<br>
+            char ch = getch();<br>
+            for(int i=0; i<10; i++){<br>
+              if( ch == keys[i] || ch-32 == keys[i] ){<br>
+                resetAlphabet(i);<br>
+                score++;<br>
+                updateScore();<br>
+              }<br>
+            }<br>
+            if(ch==27){<br>
+              break;<br>
+            }<br>
+          } <br>
+          <br>
+          for(int i=0; i<10; i++)<br>
+            drawAlphabet(i);  <br>
+            <br>
+          Sleep(speed); <br>
+          <br>
+          for(int i=0; i<10; i++){<br>
+            eraseAlphabet(i);  <br>
+            keyPos[i][1] += 1;<br>
+            if( keyPos[i][1] > SCREEN_HEIGHT ){<br>
+              gameover(score, speed);<br>
+              return;<br>
+            }<br>
+          }<br>
+        }<br>
+      }<br>
+      void difficult(){<br>
+        system("cls");<br>
+        gotoxy(45,5); cout<<" -------------------------- "; <br>
+        gotoxy(45,6); cout<<" |       Difficulty       | "; <br>
+        gotoxy(45,7); cout<<" --------------------------";<br>
+        gotoxy(45,9); cout<<"1. Easy";<br>
+        gotoxy(45,10); cout<<"2. Normal";<br>
+        gotoxy(45,11); cout<<"3. Hard";<br>
+        gotoxy(45,13); cout<<"select your difficulty: ";<br>
+        char diff = getche();<br>
+      <br>
+        if (diff == '1') play(300);<br>
+        else if (diff == '2') play(240);<br>
+        else if (diff == '3') play(180);<br>
+      }<br>
+      <br>
+      <br>
+      int main()<br>
+      {<br>
+        setcursor(0,0); <br>
+        srand( (unsigned)time(NULL)); <br>
+         <br>
+        do{<br>
+          system("cls");<br>
+          gotoxy(45,5); cout<<" -------------------------- "; <br>
+          gotoxy(45,6); cout<<" |     TYPING  TUTOR      | "; <br>
+          gotoxy(45,7); cout<<" --------------------------";<br>
+          gotoxy(45,9); cout<<"1. Start Game";<br>
+          gotoxy(45,10); cout<<"2. Instructions";	 <br>
+          gotoxy(45,11); cout<<"3. Quit";<br>
+          gotoxy(45,13); cout<<"Select option: ";<br>
+          char op = getche();<br>
+          <br>
+          if( op=='1') {<br>
+            difficult();<br>
+          }<br>
+          else if( op=='2') {<br>
+            instructions();<br>
+          }<br>
+          else if( op=='3') {<br>
+            exit(0);<br>
+          } <br>
+          <br>
+        }while(1);<br>
+        <br>
+        return 0;<br>
+      }><br>
     </div>
 </div>
 </div>
