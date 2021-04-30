@@ -1,0 +1,88 @@
+<html>
+<head>
+
+</head>
+<body> 
+ 
+<div class="wrap">
+
+  <div class="bar" style="width: 20%;height: 10%;  left: 40%;  top: 100px; 
+  background-color:hsl(305, 63%, 47%)
+  ;border-radius: 15px; z-index: 2;
+  animation:moon 3s infinite linear;"><h1>source code</h1></div>
+  <div class="box" style="left: 10%; top: 107px; padding: 5%;">
+    <div style=
+    "
+    width:99%;
+    height:99%;
+    line-height:3em;
+    overflow:scroll;
+    padding:5px;
+    background-color:#ffbefa;
+    scrollbar-base-color:#c105da;">
+    This 'div' element uses 'overflow:scroll' to create scrollbars whenever the contents of the 'div' become too large. 
+    </div>
+</div>
+</div>
+<div class="bar" style="left: 5%;top: 20px;"></div>
+<div class="button bar" style="left: 65%;top: 20px; background-color: #FF66C4;"><h1>รายละเอียด</h1></div>
+<div class="button bar" style="left: 80%;top: 20px; background-color: #e300f8;"><h1>HOME</h1></div>
+
+</body>
+<style>
+body {
+  background-color: #F0BEFF;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+.wrap{
+  width: 95%;
+  height: 100%;
+  background:#9231af;
+  left: 36px;
+  top: 2px;
+  border-radius: 50px;
+  position: absolute;
+}
+.bar{
+  width: 80%;
+  height: 10%;
+  background: #C090CE;
+  position: absolute;
+  }
+.box{
+  width: 70%;
+  height: 55%;
+  border-radius: 50px;
+  background: #CE7FE6;
+  position: absolute;
+  
+}
+
+.button{
+  width: 15%;
+  height: 10%;
+  transition: .3s;
+  
+}
+.button:hover{
+  transform: scale(1.2);
+  z-index: 2;
+}
+@keyframes moon{
+        0%{transform:rotate(0deg)}
+        20%{transform:rotate(2deg)}
+        40%{transform:rotate(0deg)}
+        80%{transform:rotate(-2deg)}
+        100%{transform:rotate(0deg)}
+      }
+</style>
+</html>
