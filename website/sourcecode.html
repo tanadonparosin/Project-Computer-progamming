@@ -6,6 +6,7 @@
 
 </body>
 <style>
+  
 body {
   background-color: #F0BEFF;
 }
@@ -40,18 +41,7 @@ p {
   border-radius: 50px;
   background: #CE7FE6;
   position: absolute;
-  
-}
-
-.button{
-  width: 15%;
-  height: 10%;
-  transition: .3s;
-  
-}
-.button:hover{
-  transform: scale(1.2);
-  z-index: 2;
+  box-shadow: 10px 10px 5px rgb(245, 169, 248);
 }
 @keyframes moon{
         0%{transform:rotate(0deg)}
@@ -76,9 +66,10 @@ li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 20px 16px;
+  padding: 18.5px 16px;
   text-decoration: none;
   transition: .3s;
+  font-family: 'Anton', sans-serif;
 }
 
 li a:hover {
@@ -86,6 +77,16 @@ li a:hover {
   transform: scale(1.2);
   z-index: 2;
 }
+li2 a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 0px 0px;
+  text-decoration: none;
+  font-size: 3em;
+  text-shadow: 4px 4px #000000;
+}
+
 </style>
 <body> 
  
@@ -93,15 +94,17 @@ li a:hover {
 
   
   
-</div>
 
-<ul>
-  <li><a class="active" href="home.html">Home</a></li>
-  <li><a href="info.html">specification</a></li>
-  <li><a href="sourcecode.html">source code</a></li>
-  
-  
-</ul>
+
+  <ul>
+    <li><a class="active" href="index.html">Home</a></li>
+    <li><a href="info.html">Specification</a></li>
+    <li><a href="sourcecode.html">Source Code</a></li>
+    <li2 style="float:right;background-color: rgb(128, 3, 177);"><a class="active" >Type That Letters</a></li2>
+    
+    
+  </ul>
+
 </style>
 <body> 
  
@@ -109,7 +112,7 @@ li a:hover {
   <div class="bar" style="width: 20%;height: 10%;  left: 40%;  top: 100px; 
   background-color:hsl(305, 63%, 47%)
   ;border-radius: 15px; z-index: 2;
-  animation:moon 3s infinite linear;"><h1>source code</h1></div>
+  animation:moon 3s infinite linear;"><h1>Source Code</h1></div>
   <div class="box" style="left: 20%; top: 107px; padding: 5%;">
     <div style=
     "
@@ -122,210 +125,289 @@ li a:hover {
     background-color:#ffbefa;
     scrollbar-base-color:#c105da;
     border:5px double #df74e2;">
-    #include<conio.h><br>
-      #include<iostream><br>
-      #include<dos.h> <br>
-      #include <windows.h><br>
-      #include <time.h><br>
-      <br>
-      #define SCREEN_WIDTH 90<br>
-      #define SCREEN_HEIGHT 26<br>
-      #define WIN_WIDTH 70 <br>
-      <br>
-      using namespace std; <br>
-       <br>
-      HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);<br>
-      COORD CursorPosition;<br>
-      <br>
-      char keys[10];	<br>
-      int keyPos[10][2];	<br>
-      int score = 0; <br>
-      
-      void gotoxy(int x, int y){<br>
-        CursorPosition.X = x;<br>
-        CursorPosition.Y = y;<br>
-        SetConsoleCursorPosition(console, CursorPosition);<br>
+    #include &#60;dos.h> <br>
+    #include &#60;windows.h><br>
+    #include &#60;time.h><br>
+    #include &#60;iomanip><br>
+    <br>
+    #define SCREEN_WIDTH 90<br>
+    #define SCREEN_HEIGHT 26<br>
+    @@ -15,14 +16,15 @@ COORD CursorPosition;<br>
+    <br>
+    char keys[10];	<br>
+    int keyPos[10][2];	<br>
+    int score = 0; <br>
+    int score = 0;<br>
+    int timec = 120;<br>
+    <br>
+    void gotoxy(int x, int y){<br>
+    void gotoxy(int x, int y){										// กำหนดตำแหน่ง<br>
+      CursorPosition.X = x;<br>
+      CursorPosition.Y = y;<br>
+      SetConsoleCursorPosition(console, CursorPosition);<br>
+    }<br>
+    void setcursor(bool visible, DWORD size) {<br>
+    void setcursor(bool visible, DWORD size) {						<br>
+      if(size == 0)<br>
+        size = 20;	<br>
+    <br>
+    @@ -31,7 +33,7 @@ void setcursor(bool visible, DWORD size) {<br>
+      lpCursor.dwSize = size;<br>
+      SetConsoleCursorInfo(console,&lpCursor);<br>
+    }<br>
+    void drawBorder(){  											// เส้นขอบ<br>
+    void drawBorder(){  											// สร้างเส้นเส้นขอบ<br>
+      for(int i=0; i <= SCREEN_WIDTH + 1; i++){ <br>
+        gotoxy(i,SCREEN_HEIGHT); cout&#60;&#60;"=";<br>
       }<br>
-      void setcursor(bool visible, DWORD size) {<br>
-        if(size == 0)<br>
-          size = 20;	<br>
-        <br>
-        CONSOLE_CURSOR_INFO lpCursor;	<br>
-        lpCursor.bVisible = visible;<br>
-        lpCursor.dwSize = size;<br>
-        SetConsoleCursorInfo(console,&lpCursor);<br>
+    @@ -47,45 +49,75 @@ void drawBorder(){  											// เส้นขอบ<br>
+    <br>
+    void genAlphabet(int ind){<br>
+      keys[ind] = 65+rand()%25;<br>
+      keyPos[ind][0] = 2 + rand()%(WIN_WIDTH-2);   //random ตัวอักษร<br>
+      keyPos[ind][0] = 2 + rand()%(WIN_WIDTH-2);  						 //random ตัวอักษร<br>
+      keyPos[ind][1] = 1;<br>
+    }<br>
+    void drawAlphabet(int ind){<br>
+    void drawAlphabet(int ind){													//สร้างตัวอักษร<br>
+      if( keyPos[ind][0] != 0 ){<br>
+        gotoxy(keyPos[ind][0], keyPos[ind][1]);   cout&#60;&#60;keys[ind];  <br>
+      } <br>
+    }<br>
+    void eraseAlphabet(int ind){<br>
+      if( keyPos[ind][0] != 0 ){<br>
+      if( keyPos[ind][0] != 0 ){												//ลบตัวอักษร<br>
+        gotoxy(keyPos[ind][0], keyPos[ind][1]);   cout&#60;&#60;" ";  <br>
       }<br>
-      void drawBorder(){  											// เส้นขอบ<br>
-        for(int i=0; i <= SCREEN_WIDTH + 1; i++){ <br>
-          gotoxy(i,SCREEN_HEIGHT); cout<<"=";<br>
+    }<br>
+    void resetAlphabet(int ind){<br>
+      eraseAlphabet(ind);<br>
+    void resetAlphabet(int ind){												//สร้างตัวอักษรใหม่<br>
+      eraseAlphabet(ind);						<br>
+      genAlphabet(ind);<br>
+    }<br>
+    <br>
+    void updateScore(){<br>
+    void updateScore(){															//แสดงคะแนน<br>
+      gotoxy(WIN_WIDTH + 7, 5);cout<<"Score: "<<score<<endl;<br>
+    }<br>
+    void timecount(){<br>
+      int time = 20;<br>
+      gotoxy(WIN_WIDTH + 7, 5);cout<<"time: "<<time<<endl;<br>
+    void updatetime(){															//แสดงเวลา<br>
+      gotoxy(WIN_WIDTH + 7, 8);cout<<"time: "<<setw(3)<<timec/120<<endl;<br>
+    }<br>
+    void instructions(){<br>
+    <br>
+    void instructions(){														//แนะนำเกม และ วิธีเล่น<br>
+    <br>
+      system("cls");<br>
+      cout<<"Instructions";<br>
+      cout<<"\n----------------";<br>
+      cout<<"\n On Left side you will see falling characters ";<br>
+      cout<<"\n You have to keep them away from touching floor";<br>
+      cout<<"\n Press respective key from keyboard to keep playing";<br>
+      cout<<"\n You have 3 difficulty choices in Starting Game";<br>
+      cout<<"\n Don't forget to change your keyboard to english";<br>
+      cout<<"\n\n In Challenge mode";<br>
+      cout<<"\n on Right side you will see time: 120  countdown to 0 ";<br>
+      cout<<"\n typing many as you can";<br>
+      cout<<"\n\n Press 'escape' to exit";<br>
+      cout<<"\n\nPress any key to go back to menu";<br>
+      getch();<br>
+    }<br>
+    <br>
+    void gameover(int score, int speed){<br>
+    void timeout(int score){													//แสดงเมื่อเวลาหมดในโหมด challenge<br>
+      system("cls");<br>
+      gotoxy(45,6); cout<<"--------------------------";<br>
+      gotoxy(45,7); cout<<"-------- Time Out! -------";<br>
+      gotoxy(45,8); cout<<"--------------------------";<br>
+      gotoxy(45,10); cout<<"      SCORE: ";cout<< score;<br>
+      if(score >= 0 && score < 50){<br>
+          gotoxy(45,12);cout<<"      You got nothing";<br>
+          gotoxy(45,13);cout<<"        TRY AGAIN :(";<br>
         }<br>
-        <br>
-        for(int i=0; i<SCREEN_HEIGHT; i++){<br>
-          gotoxy(0,i); cout<<"||";<br>
-          gotoxy(SCREEN_WIDTH,i); cout<<"||";<br>
+        else if(score >= 50 && score < 80){<br>
+          gotoxy(45,12);cout<<"  You got BRONZE MEDAL!";<br>
+          gotoxy(45,13); cout<<"        NICE TRY :|";<br>
         }<br>
-        for(int i=0; i < SCREEN_HEIGHT; i++){<br>
-          gotoxy(WIN_WIDTH,i); cout<<"||";<br>
+        else if(score >= 80 && score < 120){<br>
+          gotoxy(45,12);cout<<"  You got SLIVER MEDAL!";<br>
+          gotoxy(45,13); cout<<"        GOOD :)";<br>
         }<br>
-      }<br>
-      <br>
-      void genAlphabet(int ind){<br>
-        keys[ind] = 65+rand()%25;<br>
-        keyPos[ind][0] = 2 + rand()%(WIN_WIDTH-2);   //random ตัวอักษร<br>
-        keyPos[ind][1] = 1;<br>
-      }<br>
-      void drawAlphabet(int ind){<br>
-        if( keyPos[ind][0] != 0 ){<br>
-          gotoxy(keyPos[ind][0], keyPos[ind][1]);   cout<<keys[ind];  <br>
-        } <br>
-      }<br>
-      void eraseAlphabet(int ind){<br>
-        if( keyPos[ind][0] != 0 ){<br>
-          gotoxy(keyPos[ind][0], keyPos[ind][1]);   cout<<" ";  <br>
+        else if(score >= 120){<br>
+          gotoxy(45,12);cout<<"    You got GOLD MEDAL!";<br>
+          gotoxy(45,13); cout<<"        INSANE :o";<br>
         }<br>
+      gotoxy(43,15); cout<<"press Enter to go back to menu.";<br>
+      getchar();<br>
       }<br>
-      void resetAlphabet(int ind){<br>
-        eraseAlphabet(ind);<br>
-        genAlphabet(ind);<br>
+    void gameover(int score, int speed){										//แสดงเมื่อตัวอักษรตกเกินเส้นในโหมดปกติ<br>
+      system("cls");<br>
+      gotoxy(45,6); cout<<"--------------------------";<br>
+      gotoxy(45,7); cout<<"-------- Game Over -------";<br>
+    @@ -100,27 +132,87 @@ void gameover(int score, int speed){<br>
+      else if(speed == 180){<br>
+        gotoxy(45,12); cout<<"      DIFFICULTY: Hard";<br>
       }<br>
-      <br>
-      void updateScore(){<br>
-        gotoxy(WIN_WIDTH + 7, 5);cout<<"Score: "<<score<<endl;<br>
+      gotoxy(43,14); cout<<"Press any key to go back to menu.";<br>
+      else if(speed == 295){<br>
+        gotoxy(45,12);cout<<"      You got nothing";<br>
+        gotoxy(45,13);cout<<"        TRY AGAIN :(";<br>
       }<br>
-      void timecount(){<br>
-        int time = 20;<br>
-        gotoxy(WIN_WIDTH + 7, 5);cout<<"time: "<<time<<endl;<br>
+      gotoxy(43,15); cout<<"press Enter to go back to menu.";<br>
+      getchar();<br>
+    }<br>
+    void play(int speed){												//ฟังก์ชันสำหรับการเล่นในโหมดปกติ<br>
+      score = 0;<br>
+      timec = 8100;<br>
+      for(int i=0; i<10; i++){<br>
+        keyPos[i][0] = keyPos[i][1] = 1;	<br>
       }<br>
-      void instructions(){<br>
-        <br>
-        system("cls");<br>
-        cout<<"Instructions";<br>
-        cout<<"\n----------------";<br>
-        cout<<"\n On Left side you will see falling characters ";<br>
-        cout<<"\n You have to keep them away from touching floor";<br>
-        cout<<"\n Press respective key from keyboard to keep playing";<br>
-        cout<<"\n\n Press 'escape' to exit";<br>
-        cout<<"\n\nPress any key to go back to menu";<br>
-        getch();<br>
-      }<br>
-      <br>
-      void gameover(int score, int speed){<br>
-        system("cls");<br>
-        gotoxy(45,6); cout<<"--------------------------";<br>
-        gotoxy(45,7); cout<<"-------- Game Over -------";<br>
-        gotoxy(45,8); cout<<"--------------------------";<br>
-        gotoxy(45,10); cout<<"      SCORE: ";cout<< score;<br>
-        if(speed == 300){<br>
-          gotoxy(45,12);cout<<"      DIFFICULTY: Easy";<br>
-        }<br>
-        else if(speed == 240){<br>
-          gotoxy(45,12); cout<<"      DIFFICULTY: Normal";<br>
-        }<br>
-        else if(speed == 180){<br>
-          gotoxy(45,12); cout<<"      DIFFICULTY: Hard";<br>
-        }<br>
-        gotoxy(43,14); cout<<"Press any key to go back to menu.";<br>
-        getch();<br>
-      }<br>
-      <br>
-      void play(int speed){<br>
-        score = 0;<br>
-        for(int i=0; i<10; i++){<br>
-          keyPos[i][0] = keyPos[i][1] = 1;	<br>
-        }<br>
-         <br>
-        system("cls"); <br>
-        drawBorder(); <br>
-        updateScore();<br>
-        <br>
-        for(int i=0; i<10; i++)<br>
-          genAlphabet(i); <br>
-        <br>
-        gotoxy(WIN_WIDTH + 5, 2);cout<<"Typing Tutor";<br>
-        gotoxy(WIN_WIDTH + 6, 4);cout<<"----------";<br>
-        gotoxy(WIN_WIDTH + 6, 6);cout<<"----------";<br>
-        <br>
-        gotoxy(18, 5);cout<<"Press any key to start";<br>
-        getch();<br>
-        gotoxy(18, 5);cout<<"                      ";<br>
-        <br>
-        while(1){<br>
-          if(kbhit()){<br>
-            char ch = getch();<br>
-            for(int i=0; i<10; i++){<br>
-              if( ch == keys[i] || ch-32 == keys[i] ){<br>
-                resetAlphabet(i);<br>
-                score++;<br>
-                updateScore();<br>
-              }<br>
-            }<br>
-            if(ch==27){<br>
-              break;<br>
-            }<br>
-          } <br>
-          <br>
-          for(int i=0; i<10; i++)<br>
-            drawAlphabet(i);  <br>
-            <br>
-          Sleep(speed); <br>
-          <br>
+    <br>
+      system("cls"); <br>
+      drawBorder(); <br>
+      updateScore();<br>
+    <br>
+      for(int i=0; i<10; i++)<br>
+        genAlphabet(i); <br>
+    <br>
+      gotoxy(WIN_WIDTH + 5, 2);cout<<"Typing Tutor";<br>
+      gotoxy(WIN_WIDTH + 6, 4);cout<<"----------";<br>
+      gotoxy(WIN_WIDTH + 6, 6);cout<<"----------";<br>
+    <br>
+      gotoxy(18, 5);cout<<"Press any key to start";<br>
+      getch();<br>
+      gotoxy(18, 5);cout<<"                      ";<br>
+    <br>
+      while(1){<br>
+        if(kbhit()){<br>
+          char ch = getch();<br>
           for(int i=0; i<10; i++){<br>
-            eraseAlphabet(i);  <br>
-            keyPos[i][1] += 1;<br>
-            if( keyPos[i][1] > SCREEN_HEIGHT ){<br>
-              gameover(score, speed);<br>
-              return;<br>
+            if( ch == keys[i] || ch-32 == keys[i] ){<br>
+              resetAlphabet(i);<br>
+              score++;<br>
+              updateScore();<br>
             }<br>
+          }<br>
+          if(ch==27){<br>
+            break;<br>
+          }<br>
+        }<br>
+        for(int i=0; i<10; i++)<br>
+          drawAlphabet(i);  <br>
+    <br>
+        Sleep(speed); <br>
+    <br>
+        for(int i=0; i<10; i++){<br>
+          eraseAlphabet(i);  <br>
+          keyPos[i][1] += 1;<br>
+          if( keyPos[i][1] > SCREEN_HEIGHT ){<br>
+            gameover(score, speed);<br>
+            return;<br>
           }<br>
         }<br>
       }<br>
-      void difficult(){<br>
+    }<br>
+    <br>
+    void play(int speed){<br>
+    void playtime(int speed){									//ฟังก์ชันสำหรับการเล่นในโหมด challenge<br>
+      score = 0;<br>
+      timec = 14400;<br>
+      for(int i=0; i<10; i++){<br>
+        keyPos[i][0] = keyPos[i][1] = 1;	<br>
+      }<br>
+    <br>
+      system("cls"); <br>
+      drawBorder(); <br>
+      updateScore();<br>
+      updatetime();<br>
+    <br>
+      for(int i=0; i<10; i++)<br>
+        genAlphabet(i); <br>
+    <br>
+      gotoxy(WIN_WIDTH + 5, 2);cout<<"Typing Tutor";<br>
+      gotoxy(WIN_WIDTH + 6, 4);cout<<"----------";<br>
+      gotoxy(WIN_WIDTH + 6, 6);cout<<"----------";<br>
+    <br>
+      gotoxy(WIN_WIDTH + 6, 10);cout<<"GOLD   : 120";<br>
+      gotoxy(WIN_WIDTH + 6, 11);cout<<"SLIVER : 80";<br>
+      gotoxy(WIN_WIDTH + 6, 12);cout<<"BRONZE : 50";<br>
+    <br>
+      gotoxy(18, 5);cout<<"Press any key to start";<br>
+      getch();<br>
+      gotoxy(18, 5);cout<<"                      ";<br>
+    @@ -138,6 +230,14 @@ void play(int speed){<br>
+          if(ch==27){<br>
+            break;<br>
+          }<br>
+        }<br>
+        for(int i= 0;  i < 120; i++){<br>
+          timec -= 1;<br>
+          updatetime();<br>
+          if (timec == 0){<br>
+            timeout(score);<br>
+            return;<br>
+          }<br>
+        } <br>
+    <br>
+        for(int i=0; i<10; i++)<br>
+    @@ -155,15 +255,16 @@ void play(int speed){<br>
+        }<br>
+      }<br>
+    }<br>
+    void difficult(){<br>
+    <br>
+    void difficult(){														//แสดงตัวเลือกระดับความยาก<br>
+      system("cls");<br>
+      gotoxy(45,5); cout<<" -------------------------- "; <br>
+      gotoxy(45,6); cout<<" |       Difficulty       | "; <br>
+      gotoxy(45,7); cout<<" --------------------------";<br>
+      gotoxy(45,9); cout<<"1. Easy";<br>
+      gotoxy(45,10); cout<<"2. Normal";<br>
+      gotoxy(45,11); cout<<"3. Hard";<br>
+      gotoxy(45,13); cout<<"select your difficulty: ";<br>
+      gotoxy(45,13); cout<<"choose your difficulty: ";<br>
+      char diff = getche();<br>
+    <br>
+      if (diff == '1') play(300);<br>
+    @@ -172,20 +273,20 @@ void difficult(){<br>
+    }<br>
+    <br>
+    <br>
+    int main()<br>
+    int main()																//ฟังก์ชันหลัก หน้าเมนู<br>
+    {<br>
+      setcursor(0,0); <br>
+      srand( (unsigned)time(NULL)); <br>
+    <br>
+      do{<br>
         system("cls");<br>
         gotoxy(45,5); cout<<" -------------------------- "; <br>
-        gotoxy(45,6); cout<<" |       Difficulty       | "; <br>
+        gotoxy(45,6); cout<<" |     TYPING  TUTOR      | "; <br>
+        gotoxy(45,6); cout<<" |     TYPING  LETTERS    | "; <br>
         gotoxy(45,7); cout<<" --------------------------";<br>
-        gotoxy(45,9); cout<<"1. Easy";<br>
-        gotoxy(45,10); cout<<"2. Normal";<br>
-        gotoxy(45,11); cout<<"3. Hard";<br>
-        gotoxy(45,13); cout<<"select your difficulty: ";<br>
-        char diff = getche();<br>
-      <br>
-        if (diff == '1') play(300);<br>
-        else if (diff == '2') play(240);<br>
-        else if (diff == '3') play(180);<br>
-      }<br>
-      <br>
-      <br>
-      int main()<br>
-      {<br>
-        setcursor(0,0); <br>
-        srand( (unsigned)time(NULL)); <br>
-         <br>
-        do{<br>
-          system("cls");<br>
-          gotoxy(45,5); cout<<" -------------------------- "; <br>
-          gotoxy(45,6); cout<<" |     TYPING  TUTOR      | "; <br>
-          gotoxy(45,7); cout<<" --------------------------";<br>
-          gotoxy(45,9); cout<<"1. Start Game";<br>
-          gotoxy(45,10); cout<<"2. Instructions";	 <br>
-          gotoxy(45,11); cout<<"3. Quit";<br>
-          gotoxy(45,13); cout<<"Select option: ";<br>
-          char op = getche();<br>
-          <br>
-          if( op=='1') {<br>
-            difficult();<br>
-          }<br>
-          else if( op=='2') {<br>
-            instructions();<br>
-          }<br>
-          else if( op=='3') {<br>
-            exit(0);<br>
-          } <br>
-          <br>
-        }while(1);<br>
-        <br>
-        return 0;<br>
-      }><br>
+        gotoxy(45,9); cout<<"1. Start Game";<br>
+        gotoxy(45,10); cout<<"2. Instructions";	 <br>
+        gotoxy(45,11); cout<<"3. Quit";<br>
+        gotoxy(45,13); cout<<"Select option: ";<br>
+        gotoxy(45,11); cout<<"3. Challenge";<br>
+        gotoxy(45,12); cout<<"4. Quit";<br>
+        gotoxy(45,14); cout<<"Select option: ";<br>
+        char op = getche();<br>
+    <br>
+        if( op=='1') {<br>
+    @@ -195,6 +296,9 @@ int main()<br>
+          instructions();<br>
+        }<br>
+        else if( op=='3') {<br>
+          playtime(295);<br>
+        } <br>
+        else if( op=='4') {<br>
+          exit(0);<br>
+        } <br>
+    
     </div>
 </div>
 </div>
