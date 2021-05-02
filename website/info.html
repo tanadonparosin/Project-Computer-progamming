@@ -11,11 +11,15 @@ body {
 h1 {
   color: white;
   text-align: center;
+  font-family: 'Anton', sans-serif;
 }
-
+h2 {
+  color: white;
+}
 p {
-  font-family: verdana;
+  font-family: 'Anton', sans-serif;
   font-size: 20px;
+  
 }
 .wrap{
   width: 95%;
@@ -38,26 +42,20 @@ p {
   border-radius: 50px;
   background: #CE7FE6;
   position: absolute;
-  
+  padding-left: 1em;
+  padding-right: 1em;
+  box-shadow: 10px 10px 5px rgb(245, 169, 248);
+}
+.box2{
+  width: 70%;
+  height: 55%;
+  border-radius: 50px;
+  background: #CE7FE6;
+  position: absolute;
+
 }
 
-.button{
-  width: 15%;
-  height: 10%;
-  transition: .3s;
-  
-}
-.button:hover{
-  transform: scale(1.2);
-  z-index: 2;
-}
-@keyframes moon{
-        0%{transform:rotate(0deg)}
-        20%{transform:rotate(2deg)}
-        40%{transform:rotate(0deg)}
-        80%{transform:rotate(-2deg)}
-        100%{transform:rotate(0deg)}
-      }
+
 ul {
   list-style-type: none;
   margin: 5;
@@ -74,9 +72,10 @@ li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 20px 16px;
+  padding: 18.5px 16px;
   text-decoration: none;
   transition: .3s;
+  font-family: 'Anton', sans-serif;
 }
 
 li a:hover {
@@ -84,6 +83,30 @@ li a:hover {
   transform: scale(1.2);
   z-index: 2;
 }
+li2 a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 0px 0px;
+  text-decoration: none;
+  font-size: 3em;
+  text-shadow: 4px 4px #000000;
+}
+p {
+  color: rgb(255, 255, 255);
+  text-indent: 30px;
+  
+}
+img{
+  width: 200px;
+  height: 200px;
+  margin: 2px;
+  transition: .3s;
+} 
+img:hover{
+  transform: scale(1.6);
+  z-index: 2;
+} 
 </style>
 <body> 
  
@@ -91,22 +114,33 @@ li a:hover {
 
   
 
-<ul>
-  <li><a class="active" href="home.html">Home</a></li>
-  <li><a href="info.html">specification</a></li>
-  <li><a href="sourcecode.html">source code</a></li>
-  
-  
-</ul>
+  <ul>
+    <li><a class="active" href="index.html">Home</a></li>
+    <li><a href="info.html">Specification</a></li>
+    <li><a href="sourcecode.html">Source Code</a></li>
+    <li2 style="float:right;background-color: rgb(128, 3, 177);"><a class="active" >Type That Letters</a></li2>
+    
+    
+  </ul>
+ 
 </style>
 <body> 
  
-
-
-  <div class="box" style="left: 5%;top: 15%; width: 45%; height: 40%;"></div>
-  <div class="box" style="left: 52%;top: 15%; width: 43%; height: 40%;"></div>
-  <div class="box" style="left: 5%;top: 57%; width: 90%; height: 40%;"></div>
-
+  <div class="box" style="left: 3%;top: 57%; width: 45%; height: 90%;"><h1>Intruction</h1><p>สำหรับตัวเกม typing letters ของเรา  มีวิธีการเล่น คือ จะมีตัวอักษรที่ร่วงลงมาจากทางด้านบน ซึ่งจะตกลงมาเรื่อยๆ ให้ผู้เล่นพิมพ์ตัวอักษรที่ตกลงมาเพื่อเพิ่มคะแนน โดยที่ไม่ให้ตัวอักษรร่วงหล่นจนถึงเส้นขอบด้านล่าง  โดยจะแสดงเป็นตัวอักษรภาษาอังกฤษตัวพิมพ์ใหญ่  และ ตัวแป้นพิมพ์จะรองรับเพียงแค่ภาษาอังกฤษเท่านั้น จึงจะนับคะแนน แต่จะเป็นตัวพิมพ์เล็กหรือใหญ่ก็ได้ สามารถพิมพ์ได้เหมือนกัน ซึ่งเกมจะมีวิธีการเล่นอยู่ 2 แบบ<br><p>1. แบบปกติ ซึ่งมีระดับความยากอยู่ 3 ระดับ easy normal hard ซึ่งแต่ละระดับก็จะเพิ่มตามระดับความยาก ซึ่งตัวอักษรจะตกลงมาเรื่อยๆ จนกว่าที่ผู้เล่นจะไม่สามารถพิมพ์ตัวอักษรที่ตกลงมาทัน และ ร่วงลงมาจนถึงเส้นขอบด้านล่าง แล้วจึงจะสรุปและแสดงผลของคะแนนทั้งหมดพร้อมกับระดับความยาก <br><p>2. แบบ Challenge จะเหมือนแบบที่ 1 แต่จะมีการจับเวลา โดยจะแสดงอยู่ทางด้านขวา โดยจะนับถอยหลังจาก 120 ไปจนถึง 0 ซึ่งเวลานี้ไม่ใช่ 120 วินาที แต่จะเพียงตัวที่จะจับเวลาเท่านั้น ซึ่งจะนับเร็วกว่าเวลาปกติ โดยถ้าเทียบเป็นวินาทีแล้วจะเท่ากับ 40 วินาที โดยประมาณ ให้ผู้เล่นทำการพิมพ์ให้ได้มากที่สุดจนกว่าเวลาจะหมด แต่ยังคงต้องระวังไม่ให้ตัวอักษรตกถึงเส้นขอบด้านล่างเช่นกัน ซึ่งคะแนนจะวัดเป็นเหรียญรางวัล พร้อมกับคะแนนที่ทำได้ในตอนจบ <br><p>โดยคะแนน 0 - 49  จะไม่ได้อะไร หรือ ตัวอักษรตกถึงเส้นขอบด้านล่างก่อนเวลาหมด จะปรากฎข้อความ"You got Nothing Try again" 
+    คะแนน 50 - 79 จะได้รับ เหรียญ ทองแดง หรือ bronze 
+    คะแนน 80 - 119 จะได้เหรียญเงิน หรือ sliver 
+    คะแนนมากกว่า 120 จะได้เหรียญทอง หรือ gold
+    เกณฑ์คะแนนมีระบุไว้ทางด้านขวา <p></div>
+  <div class="box" style="left: 52%;top: 45%; width: 43%; height: 102%;"><h2>หน้าเมนูจะมีทั้ง 4 ตัวเลือก คือ</h2>
+    <p>1. Start Game คือ รูปแบบการเล่นแบบปกติ โดยเมื่อเลือกตัวเลือกนี้ จะนำไปสู่หน้าเลือกระดับความยากซึ่งมีอยู่ด้วยกัน 3 ระดับ คือ easy normal hard โดยจะเพิ่มความเร็วตามระดับ
+    <p>2.Intructionsบอกรูปแบบ คำแนะนำในการเล่นเกม
+    <p>3.Challenge รูปแบบการเล่นเกมแบบ มีเวลาจำกัด
+    <p>4.Quit ออกจากโปรแกรม
+    <br>ซึ่งสามารถเลือกตัวเลือกโดยการพิมพ์ตัวเลขด้านหน้าตัวเลือก เพื่อให้ตัวเลือกนั้นๆทำงาน</p><img src="1.png"><img src="2.png"><img src="3.png"><img src="4.png"><img src="5 ch mode.png"><img src="6 ch end.png"></div>
+  <div class="box" style="left: 3%;top: 15%; width: 45%; height: 40%;"><h1>Abstract</h1> <p>เกม 'Type That Letter' สำหรับเสริมทักษะในด้านสมาธิ ความเร็ว ความแม่นยำและความจำ ทั้งนี้เนื่องจากผู้คนโดยส่วนใหญ่มักจะเห็นว่าการฝึกพิมพ์ดีดบนคอมพิวเตอร์นั้นเป็นเรื่องที่น่าเบื่อ และไม่น่าสนใจนัก ดังนั้นการพัฒนาจากโปรแกรมพิมพ์ดีดมาเป็นเกมนั้นช่วยเพิ่มความน่าสนใจและความสนุกได้ด้วย ซึ่งเกม 'Type That Letter' พัฒนาขึ้นด้วยโปรแกรมภาษา C++ ซึ่งเป็นเกมสองมิติ ใช้กราฟิกแบบง่าย ไม่เน้นความสวยงามมากนัก จุดเด่นของเกมนั้นก็คือ ภายในตัวเกมนั้นจะมีให้เลือกโหมดความยาก-ความง่ายของเกม ซึ่งในแต่ละโหมดนั้นความเร็วในการปรากฏตัวของตัวอักษรนั้นจะเร็วขึ้นตามความยากเช่นกัน</p></div>
+  <div class="box" style="left: 52%;top: 15%; width: 43%; height: 25%;"><h1>Objective</h1> <p>เกม 'Type That Letter' ถูกพัฒนาขึ้นมาเพื่อศึกษาโครงสร้าง และหลักการทำงานในการเขียนโปรแกรมภาษา C++ และสามารถฝึกทักษะทางด้านพิมพ์ดีดได้อีกด้วย อีกทั้งสำหรับผู้ที่สนใจที่จะนำไปพัฒนาต่อก็สามารถนำไปศึกษาเพิ่มเติมได้</p></div>
+  
+  
 
 
 
