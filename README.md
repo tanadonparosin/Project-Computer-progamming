@@ -6,5 +6,5 @@ ABOUT THE PROJECT
 - Video instruction and gameplay
 
 ## Website
-  [![Poster][poster]]()
+  [![Poster][poster]](Poster.png)
  
