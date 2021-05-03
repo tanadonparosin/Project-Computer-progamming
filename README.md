@@ -6,6 +6,5 @@ ABOUT THE PROJECT
 - Video instruction and gameplay
 
 ## Website
-
-[![Poster][poster]](https://github.com/tanadonparosin/Project-Computer-progamming/blob/main/Poster.png)
+![Poster](https://github.com/tanadonparosin/Project-Computer-progamming/blob/main/Poster.png)
  
