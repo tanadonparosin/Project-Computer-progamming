@@ -1,5 +1,5 @@
 # TYPING LETERS
-- Website
+- Website : https://amazing-saha-cfdb7e.netlify.app/index.html
 - Abstract
 - Video instruction and gameplay
 
