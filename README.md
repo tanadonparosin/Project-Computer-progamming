@@ -1,7 +1,7 @@
 # TYPING LETERS
 - <a href ="https://amazing-saha-cfdb7e.netlify.app/index.html">Website</a>
 - About The Project
-- [Instruction](##INSTRUCTION)
+- [Instruction](#INSTRUCTION)
 - Video instruction and gameplay
 
 ## ABOUT THE PROJECT
@@ -11,7 +11,7 @@
    
    
    
-## INSTRUCTION
+# INSTRUCTION
 
    สำหรับตัวเกม typing letters ของเรา  มีวิธีการเล่น คือ จะมีตัวอักษรที่ร่วงลงมาจากทางด้านบน ให้ผู้เล่นพิมพ์ตัวอักษรที่ตกลงมาเพื่อเพิ่มคะแนน โดยที่ไม่ให้ตัวอักษรร่วงหล่นจนถึงเส้นขอบด้านล่าง  โดยจะแสดงเป็นตัวอักษรภาษาอังกฤษตัวพิมพ์ใหญ่  และ ตัวแป้นพิมพ์จะรองรับเพียงแค่ภาษาอังกฤษตัวพิมพ์เล็ก หรือ พิมพ์ใหญ่เท่านั้น จึงจะนับคะแนน โดยมีรูปแบบการเล่น 2 แบบ <br>
 ### GAME MODE
