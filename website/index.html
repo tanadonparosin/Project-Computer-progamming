@@ -47,7 +47,7 @@ p {
 }
 .box2{
   width: 70%;
-  height: 40%;
+  height: 35%;
   border-radius: 50px;
   background: #CE7FE6;
   position: absolute;
@@ -90,17 +90,42 @@ li2 a {
   font-size: 3em;
   text-shadow: 4px 4px #000000;
 }
-svg{
-        background:white;
-        box-shadow:0 0 20px #0001;
-        width:80%;
+li3 a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 0px 0px;
+  text-decoration: none;
+  font-size: 1em;
+  text-shadow: 2px 2px #000000;
+}
+.bar{
+  width: 80%;
+  height: 10%;
+  background: #C090CE;
+  position: absolute;
+  }
+      
+      @keyframes moon{
+        0%{transform:rotate(0deg)}
+        20%{transform:rotate(2deg)}
+        40%{transform:rotate(0deg)}
+        80%{transform:rotate(-2deg)}
+        100%{transform:rotate(0deg)}
       }
+      li3 a {
+  display: block;
+  width: 60px;
+}
 </style>
 <body> 
- 
+  <div class="bar" style="width: 20%;height: 10%;  left: 40%;  top: 130px; 
+  background-color:hsl(305, 63%, 47%)
+  ;border-radius: 15px; z-index: 2;
+  animation:moon 3s infinite linear;"><h1>Game Play</h1></div>
 <div class="container"></div>
-<div class="box2" style="background-color: rgb(203, 146, 226) ;left: 31.5%; top: 100px; width: 35%; height: 40%;" ></div>
-  <div class="box" style="  left: 32.5%;  top: 130px; ">
+<div class="box2" style="background-color: rgb(203, 146, 226) ;left: 31.5%; top: 160px; width: 35%; height: 40%;" ></div>
+  <div class="box" style="  left: 32.5%;  top: 200px; ">
     <video width="500" height="240" controls autoplay>
       <source src="GPwSound.mp4">
       <source src="GPwSound.ogg">
@@ -108,7 +133,7 @@ svg{
     </video>
   </div>
   
-  <div class="box2" style="left: 15%; top: 430px;"><p>โครงงานนี้เป็นโครงงานเกมสำหรับฝึกการพิมพ์โดยแป้นพิมพ์คีย์บอร์ด โดยที่เกมจะมีตัวอักษรตกลงมาเรื่อยๆ โดยมีขอบด้านล่างสุดเป็นเส้นวัดจุดจบของเกมหากมีตัวอักษรตกลงไปสุดขอบ เกมก็จะจบ และจะแสดงคะแนนทั้งหมดที่พิมพ์ไปได้ ซึ่งตัวอักษรที่จะแสดงในเกมจะเป็นตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ โดยผู้เล่นไม่ต้องเปลี่ยนเป็นตัวพิมพ์ใหญ่ก็ได้ ในหน้าเมนูจะมีตัวเลือกสำหรับเล่นเกมที่มีระดับความยากอยู่ 3 ระดับ ซึ่งในแต่ละระดับจะเพิ่มความเร็วในการตกลงมาของตัวอักษร และ ในหน้าเมนูจะมีตัวเลือกสำหรับอธิบายการเล่นของเกม และ เมนูออก ซึ่งจะเลือกได้โดยกดหมายเลขตรงหน้าของแต่ละตัวเลือก 
+  <div class="box2" style="left: 15%; top: 490px;"><p>โครงงานนี้เป็นโครงงานเกมสำหรับฝึกการพิมพ์โดยแป้นพิมพ์คีย์บอร์ด โดยที่เกมจะมีตัวอักษรตกลงมาเรื่อยๆ โดยมีขอบด้านล่างสุดเป็นเส้นวัดจุดจบของเกมหากมีตัวอักษรตกลงไปสุดขอบ เกมก็จะจบ และจะแสดงคะแนนทั้งหมดที่พิมพ์ไปได้ ซึ่งตัวอักษรที่จะแสดงในเกมจะเป็นตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ โดยผู้เล่นไม่ต้องเปลี่ยนเป็นตัวพิมพ์ใหญ่ก็ได้ ในหน้าเมนูจะมีตัวเลือกสำหรับเล่นเกมที่มีระดับความยากอยู่ 3 ระดับ ซึ่งในแต่ละระดับจะเพิ่มความเร็วในการตกลงมาของตัวอักษร และ ในหน้าเมนูจะมีตัวเลือกสำหรับอธิบายการเล่นของเกม และ เมนูออก ซึ่งจะเลือกได้โดยกดหมายเลขตรงหน้าของแต่ละตัวเลือก 
     <br><p>โดยอาจจะมีการเพิ่มโหมดการเล่นเพิ่มเติม และ มีการปรับเปลี่ยนเมนู หน้าต่างๆ เพิ่มเติม ซึ่งจุดประสงค์ของการจัดทำโครงงานชิ้นนี้ เพื่อศึกษาการทำงาน โครงสร้างของภาษา C++ และ สร้างเกมสำหรับฝึกพิมพ์ เพื่อให้ผู้เล่นที่ได้เล่นเกมนี้ สามารถพิมพ์ได้รวดเร็วมากยิ่งขึ้น แม่นยำมากขึ้น และ สนุกไปกับคะแนนที่ตัวพิมพ์ได้ ซึ่งระเอียดบางอย่างอาจมีการเปลี่ยนแปลงในอนาคต</p></div>
 </div>
 
@@ -120,7 +145,16 @@ svg{
   
   
 </ul>
-
+<ul style="background-color: rgb(205, 106, 245);">
+  
+  <li2 style="float:left;background-color: rgb(228, 33, 179);font-size: 17px;padding-right: 4"><a class="active" >Author</a></li2>
+  <li style="font-size: 17px;padding-right: 4%;"><a>นายธนดล พะโรศิลป์ 63070072</a></li>
+  <li style="font-size: 17px;padding-right: 4%;"><a>นายสิทธิเจตน์ วานิชสรรพ์ 63070176</a></li>
+  <li style="font-size: 17px;padding-right: 4%;"><a>นายสุวรรณพงษ์ มีมณี 63070179</a></li>
+  <li style="font-size: 17px;"><a>นายอินทนนท์แต่งตั้ง 63070191</a></li>
+  
+</ul>
+<ul>
 
 
 
