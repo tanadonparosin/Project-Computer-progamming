@@ -1,6 +1,6 @@
 # TYPING LETERS
 - <a href ="https://amazing-saha-cfdb7e.netlify.app/index.html">Website</a>
-- [About The Project](#ABOUT THE PROJECT)
+- [About The Project](#ABOUT-THE-PROJECT)
 - [Instruction](#INSTRUCTION)
 - Video instruction and gameplay
 
