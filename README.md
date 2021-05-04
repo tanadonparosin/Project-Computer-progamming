@@ -3,6 +3,8 @@
 - [About The Project](#ABOUT-THE-PROJECT)
 - [Instruction](#INSTRUCTION)
 - Video instruction and gameplay
+- [Instruction](#INSTRUCTION)
+- [CREDIT](#CREDIT)
 
 # ABOUT THE PROJECT
 ![Poster](https://github.com/tanadonparosin/Project-Computer-progamming/blob/main/PosterCompro.png)
@@ -38,6 +40,8 @@
 - 63070191 อินทนนท์ แต่งตั้ง 
 <br>รายงาน และ ซอร์สโค้ดนี้ เป็นส่วนหนึ่งของวิชา Computer Programming (06016315) หลักสูตรวิทยาศาสตร์บัณฑิต สาขาวิชาเทคโนโลยีสารสนเทศ ภาคเรียนที่ 2 ปีการศึกษา 2563 คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
 
+
+# CREDIT
 **หมายเหตุ โครงงานนี้ได้นำ Source Code มาดัดแปลง และ เพิ่มเติมระบบเกม โดยได้นำมาจากช่อง youtube ชื่อ "Angulars"** <br>
 - <a href="https://www.youtube.com/watch?v=Lb5-UrUqD3w">Original Source Code</a>
  
