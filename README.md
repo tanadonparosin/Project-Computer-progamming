@@ -5,4 +5,7 @@
 
 ## ABOUT THE PROJECT
 ![Poster](https://github.com/tanadonparosin/Project-Computer-progamming/blob/main/PosterCompro.png)
+
+## ABSTRACT
+   
  
