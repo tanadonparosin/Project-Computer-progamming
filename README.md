@@ -3,7 +3,7 @@
 - [About The Project](#ABOUT-THE-PROJECT)
 - [Instruction](#INSTRUCTION)
 - Video instruction and gameplay
-- [CONTACT](#CONTACT)
+- [Contact](#CONTACT)
 - [CREDIT](#CREDIT)
 
 # ABOUT THE PROJECT
