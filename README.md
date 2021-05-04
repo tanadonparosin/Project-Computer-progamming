@@ -42,6 +42,6 @@
 
 
 # CREDIT
-***หมายเหตุ โครงงานนี้ได้นำ Source Code มาดัดแปลง และ เพิ่มเติมระบบเกม โดยได้นำมาจากช่อง youtube ชื่อ "Angulars"*** <br>
+***หมายเหตุ โครงงานนี้ได้นำ Source Code มาดัดแปลง และ เพิ่มเติมระบบเกม โดยได้นำมาจากช่อง youtube ชื่อ "<a href="https://www.youtube.com/channel/UCxiW6XF39pIRs6wehOtxWLw">Angulars</a> "*** <br>
 - <a href="https://www.youtube.com/watch?v=Lb5-UrUqD3w">Original Source Code</a>
  
