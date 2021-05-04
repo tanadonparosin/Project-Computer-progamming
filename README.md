@@ -1,10 +1,10 @@
 # TYPING LETERS
 - <a href ="https://amazing-saha-cfdb7e.netlify.app/index.html">Website</a>
-- About The Project
+- [About The Project](#ABOUT THE PROJECT)
 - [Instruction](#INSTRUCTION)
 - Video instruction and gameplay
 
-## ABOUT THE PROJECT
+# ABOUT THE PROJECT
 ![Poster](https://github.com/tanadonparosin/Project-Computer-progamming/blob/main/PosterCompro.png)
 
 ## ABSTRACT
