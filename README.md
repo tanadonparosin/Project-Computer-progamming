@@ -1,5 +1,5 @@
 # TYPING LETERS
-- Website : https://amazing-saha-cfdb7e.netlify.app/index.html
+- <a href ="https://amazing-saha-cfdb7e.netlify.app/index.html">Website</a>
 - Abstract
 - Video instruction and gameplay
 
