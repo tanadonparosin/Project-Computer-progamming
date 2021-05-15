@@ -2,7 +2,7 @@
 - <a href ="https://amazing-saha-cfdb7e.netlify.app/index.html">Website</a>
 - [About The Project](#ABOUT-THE-PROJECT)
 - [Instruction](#INSTRUCTION)
-- Video instruction and gameplay
+- <a href ="https://www.youtube.com/watch?v=tsRBsL1KOUM">Video instruction and gameplay</a>
 - [Contact](#CONTACT)
 - [CREDIT](#CREDIT)
 
