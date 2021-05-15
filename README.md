@@ -28,7 +28,7 @@
 <br>**3.Challenge** รูปแบบการเล่นเกมแบบ มีเวลาจำกัด
 <br>**4.Quit** ออกจากโปรแกรม
 <br>**ซึ่งสามารถเลือกตัวเลือกโดยการพิมพ์ตัวเลขด้านหน้าตัวเลือก เพื่อให้ตัวเลือกนั้นๆทำงาน**
-***สำหรับตัวเกมจะสามารถทำงานได้ก็ต่อเมื่อผ่าน ท่านโหลดโค้ดของเรา<a href="https://github.com/tanadonparosin/TYPING_LETTERS/blob/main/typingletters.cpp">ที่นี่</a>แล้วผ่านตัว CompilerภาษาC++ ตัวใดก็ได้***
+***สำหรับตัวเกมจะสามารถทำงานได้ก็ต่อเมื่อผ่าน ท่านโหลดโค้ดของเรา<a href="https://github.com/tanadonparosin/TYPING_LETTERS/blob/main/typingletters.cpp">ที่นี่</a> และ run ผ่านตัว Compiler ภาษาC++ ตัวใดก็ได้ ที่เราแนะนำจะเป็น "MinGW"***
 
 # Contact
 
