@@ -1,12 +1,12 @@
-#include<iostream>
-#include<conio.h>
-#include<dos.h> 
+#include <iostream>
+#include <conio.h>
+#include <dos.h> 
 #include <windows.h>
 #include <time.h>
 #include <iomanip>
 
 #define SCREEN_WIDTH 90
-#define SCREEN_HEIGHT 26									// กำหนดขนาดพื้นที่จอแสดงผลเกม
+#define SCREEN_HEIGHT 26																								// กำหนดขนาดพื้นที่จอแสดงผลเกม
 #define WIN_WIDTH 70 
 
 using namespace std; 
@@ -19,12 +19,12 @@ int keyPos[10][2];
 int score = 0;
 int timec = 120;
 
-void gotoxy(int x, int y){										// ฟังก์ชันสำหรับกำหนดตำแหน่งของ Cursor
+void gotoxy(int x, int y){																								// ฟังก์ชันรับค่าตำแหน่งบนแกน x แกน y
 	CursorPosition.X = x;
 	CursorPosition.Y = y;
 	SetConsoleCursorPosition(console, CursorPosition);
 }
-void setcursor(bool visible, DWORD size) {						// set ตัว cursor
+void setcursor(bool visible, DWORD size) {																				// วางตำแหน่ง cursor
 	if(size == 0)
 		size = 20;	
 	
@@ -33,7 +33,7 @@ void setcursor(bool visible, DWORD size) {						// set ตัว cursor
 	lpCursor.dwSize = size;
 	SetConsoleCursorInfo(console,&lpCursor);
 }
-void drawBorder(){  											// สร้างเส้นเส้นขอบบนหน้าเกม
+void drawBorder(){  																										// สร้างเส้นเส้นขอบบนหน้าเกม
 	for(int i=0; i <= SCREEN_WIDTH + 1; i++){ 
 		gotoxy(i,SCREEN_HEIGHT); cout<<"=";
 	}
@@ -49,32 +49,32 @@ void drawBorder(){  											// สร้างเส้นเส้นขอ�
 
 void genAlphabet(int ind){
 	keys[ind] = 65+rand()%25;
-	keyPos[ind][0] = 2 + rand()%(WIN_WIDTH-2);  						 //ฟังก์ชันใช้สำหรับrandom ตัวอักษร
+	keyPos[ind][0] = 2 + rand()%(WIN_WIDTH-2);  						 													//ฟังก์ชันใช้สำหรับrandom ตัวอักษร
 	keyPos[ind][1] = 1;
 }
-void drawAlphabet(int ind){													//ฟังก์ชันสร้างตัวอักษร
+void drawAlphabet(int ind){																									//ฟังก์ชันสร้างตัวอักษร
 	if( keyPos[ind][0] != 0 ){
 		gotoxy(keyPos[ind][0], keyPos[ind][1]);   cout<<keys[ind];  
 	} 
 }
 void eraseAlphabet(int ind){
-	if( keyPos[ind][0] != 0 ){												//ฟังก์ชันลบตัวอักษร
+	if( keyPos[ind][0] != 0 ){																								//ฟังก์ชันลบตัวอักษร
 		gotoxy(keyPos[ind][0], keyPos[ind][1]);   cout<<" ";  
 	}
 }
-void resetAlphabet(int ind){												//ฟังก์ชันสร้างตัวอักษรใหม่
+void resetAlphabet(int ind){																								//ฟังก์ชันสร้างตัวอักษรใหม่
 	eraseAlphabet(ind);						
 	genAlphabet(ind);
 }
 
-void updateScore(){															//ฟังก์ชันแสดงคะแนน
+void updateScore(){																											//ฟังก์ชันแสดงคะแนน
 	gotoxy(WIN_WIDTH + 7, 5);cout<<"Score: "<<score<<endl;
 }
-void updatetime(){															//ฟังก์ชันแสดงเวลา
+void updatetime(){																											//ฟังก์ชันแสดงเวลา
 	gotoxy(WIN_WIDTH + 7, 8);cout<<"time: "<<setw(3)<<timec/120<<endl;
 }
 
-void instructions(){														//ฟังก์ชันแนะนำเกม และ วิธีเล่น
+void instructions(){																										//ฟังก์ชันแนะนำเกม และ วิธีเล่น
 	
 	system("cls");
 	cout<<"Instructions";
@@ -92,7 +92,7 @@ void instructions(){														//ฟังก์ชันแนะนำเ�
 	getch();
 }
 
-void timeout(int score){													//ฟังก์ชันแสดงเมื่อเวลาหมดในโหมด challenge
+void timeout(int score){																								//ฟังก์ชันแสดงเมื่อเวลาหมดในโหมด challenge
 	system("cls");
 	gotoxy(45,6); cout<<"--------------------------";
 	gotoxy(45,7); cout<<"-------- Time Out! -------";
@@ -117,7 +117,7 @@ void timeout(int score){													//ฟังก์ชันแสดงเ�
 	gotoxy(43,15); cout<<"press Enter to go back to menu.";
 	getchar();
 	}
-void gameover(int score, int speed){										//ฟังก์ชันแสดงเมื่อตัวอักษรตกเกินเส้นขอบด้านล่าง เมื่อแพ้
+void gameover(int score, int speed){																			//ฟังก์ชันแสดงเมื่อตัวอักษรตกเกินเส้นขอบด้านล่าง เมื่อแพ้
 	system("cls");
 	gotoxy(45,6); cout<<"--------------------------";
 	gotoxy(45,7); cout<<"-------- Game Over -------";
@@ -139,9 +139,8 @@ void gameover(int score, int speed){										//ฟังก์ชันแส�
 	gotoxy(43,15); cout<<"press Enter to go back to menu.";
 	getchar();
 }
-void play(int speed){												//ฟังก์ชันสำหรับการเล่นในโหมดปกติ
+void play(int speed){																							//ฟังก์ชันสำหรับการเล่นในโหมดปกติ
 	score = 0;
-	timec = 8100;
 	for(int i=0; i<10; i++){
 		keyPos[i][0] = keyPos[i][1] = 1;	
 	}
@@ -191,7 +190,7 @@ void play(int speed){												//ฟังก์ชันสำหรับก
 	}
 }
 
-void playtime(int speed){									//ฟังก์ชันสำหรับการเล่นในโหมด challenge
+void playtime(int speed){																							//ฟังก์ชันสำหรับการเล่นในโหมด challenge
 	score = 0;
 	timec = 14400;
 	for(int i=0; i<10; i++){
@@ -256,7 +255,7 @@ void playtime(int speed){									//ฟังก์ชันสำหรับ�
 	}
 }
 
-void difficult(){														//ฟังก์ชันแสดงตัวเลือกระดับความยาก
+void difficult(){																											//ฟังก์ชันแสดงตัวเลือกระดับความยาก
 	system("cls");
 	gotoxy(45,5); cout<<" -------------------------- "; 
 	gotoxy(45,6); cout<<" |       Difficulty       | "; 
@@ -273,7 +272,7 @@ void difficult(){														//ฟังก์ชันแสดงตัว�
 }
 
 
-int main()																//ฟังก์ชันหลัก หน้าเมนู
+int main()																														//ฟังก์ชันหลัก หน้าเมนู
 {
 	setcursor(0,0); 
 	srand( (unsigned)time(NULL)); 
